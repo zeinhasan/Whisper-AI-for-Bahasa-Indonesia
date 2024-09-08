@@ -5,7 +5,7 @@ import os
 from audio_recorder_streamlit import audio_recorder
 
 # Load the Whisper model
-model = whisper.load_model("tiny")
+model = whisper.load_model("small")
 
 # Function to save recorded audio
 def save_audio(audio_data, file_name):
@@ -38,6 +38,6 @@ if audio_data:
 
     # Run Whisper model with forced Indonesian language
     st.write("Transkripsi audio...")
-    result = model.transcribe(audio_path, language="id")  # Forcing Indonesian language
+    result = model.transcribe(audio_path)
     st.write("Transkripsi:")
     st.text(result["text"])
