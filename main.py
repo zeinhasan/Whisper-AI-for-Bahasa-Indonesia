@@ -20,8 +20,8 @@ def save_audio(audio_data, file_name):
     return file_path
 
 # Streamlit UI
-st.title("Whisper AI Transcription with Streamlit")
-st.write("Click the button below to start recording your audio:")
+st.title("Whisper AI Transcription (Indonesian)")
+st.write("Klik tombol di bawah untuk mulai merekam audio:")
 
 # Record audio
 audio_data = audio_recorder()
@@ -36,8 +36,8 @@ if audio_data:
         audio_path = audio_path.replace(os.path.splitext(audio_path)[1], ".wav")
         sound.export(audio_path, format="wav")
 
-    # Run Whisper model
-    st.write("Transcribing audio...")
-    result = model.transcribe(audio_path)
-    st.write("Transcription:")
+    # Run Whisper model with forced Indonesian language
+    st.write("Transkripsi audio...")
+    result = model.transcribe(audio_path, language="id")  # Forcing Indonesian language
+    st.write("Transkripsi:")
     st.text(result["text"])
