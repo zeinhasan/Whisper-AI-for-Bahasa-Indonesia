@@ -5,7 +5,7 @@ import os
 from audio_recorder_streamlit import audio_recorder
 
 # Load the Whisper model
-model = whisper.load_model("medium")
+model = whisper.load_model("small")
 
 # Function to save recorded audio
 def save_audio(audio_data, file_name):
